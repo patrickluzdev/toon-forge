@@ -1,5 +1,6 @@
 package dev.patrickluz;
 
+import dev.patrickluz.character.Character;
 import dev.patrickluz.core.Renderer;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -10,9 +11,6 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-
-import java.awt.Color;
-
 import javafx.embed.swing.SwingFXUtils;
 
 public class App extends Application {
@@ -36,21 +34,13 @@ public class App extends Application {
         Scene scene = new Scene(root, renderer.getFrameWidth(), renderer.getFrameHeight());
         stage.setScene(scene);
         stage.show();
-
+        Character character = new Character(100, 100);
         AnimationTimer timer = new AnimationTimer() {
-            int circleX = 0;
-            final int circleY = renderer.getFrameHeight() / 2;
 
             @Override
             public void handle(long now) {
                 renderer.clear();
-                if (circleX < renderer.getFrameWidth()) {
-                    circleX = circleX + 1;
-                } else {
-                    circleX = 0;
-                }
-
-                renderer.drawOval(circleX, circleY, 50, 50, Color.RED);
+                character.draw(renderer.getG2d());
                 WritableImage preview = SwingFXUtils.toFXImage(renderer.getFrame(), null);
                 imageView.setImage(preview);
             }

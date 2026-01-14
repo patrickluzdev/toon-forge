@@ -45,4 +45,8 @@ public class Renderer {
         g2d.setColor(color);
         g2d.fillOval(x, y, width, height);
     }
+
+    public Graphics2D getG2d() {
+        return g2d;
+    }
 }
