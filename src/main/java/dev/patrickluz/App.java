@@ -34,7 +34,7 @@ public class App extends Application {
         Scene scene = new Scene(root, renderer.getFrameWidth(), renderer.getFrameHeight());
         stage.setScene(scene);
         stage.show();
-        Character character = new Character(100, 100);
+        Character character = new Character(100, 250);
         AnimationTimer timer = new AnimationTimer() {
 
             @Override

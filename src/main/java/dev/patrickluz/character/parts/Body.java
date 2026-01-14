@@ -12,8 +12,8 @@ public class Body extends CharacterPart {
     private final int bottomWidth;
     private final int height;
 
-    public Body(int posX, int posY, int topWidth, int bottomWidth, int height, Color strokeColor, Color fillColor) {
-        super(posX, posY, strokeColor, fillColor);
+    public Body(int x, int y, int topWidth, int bottomWidth, int height, Color strokeColor, Color fillColor) {
+        super(x, y, strokeColor, fillColor);
         this.topWidth = topWidth;
         this.bottomWidth = bottomWidth;
         this.height = height;

@@ -4,15 +4,15 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 public abstract class CharacterPart {
-    private int posX, posY;
+    private int x, y;
     private double rotation, pivotX, pivotY;
     private double scaleX = 1.0, scaleY = 1.0;
     private Color fillColor, strokeColor;
     private int strokeWidth = 1;
 
-    public CharacterPart(int posX, int posY, Color strokeColor, Color fillColor) {
-        this.posX = posX;
-        this.posY = posY;
+    public CharacterPart(int x, int y, Color strokeColor, Color fillColor) {
+        this.x = x;
+        this.y = y;
         this.rotation = 0.0;
         this.pivotX = 0.0;
         this.pivotY = 0.0;
@@ -23,19 +23,19 @@ public abstract class CharacterPart {
     public abstract void draw(Graphics2D g2d);
 
     public int getPosX() {
-        return posX;
+        return x;
     }
 
-    public void setPosX(int posX) {
-        this.posX = posX;
+    public void setPosX(int x) {
+        this.x = x;
     }
 
     public int getPosY() {
-        return posY;
+        return y;
     }
 
-    public void setPosY(int posY) {
-        this.posY = posY;
+    public void setPosY(int y) {
+        this.y = y;
     }
 
     public double getRotation() {

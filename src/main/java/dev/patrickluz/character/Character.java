@@ -1,6 +1,8 @@
 package dev.patrickluz.character;
 
+import dev.patrickluz.character.parts.Arm;
 import dev.patrickluz.character.parts.Body;
+import dev.patrickluz.character.parts.Direction;
 import dev.patrickluz.character.parts.Head;
 
 import java.awt.Color;
@@ -29,6 +31,14 @@ public class Character {
 
         Body body = new Body(bodyPosX, bodyPosY, bodyTopWidth, bodyBottomWidth, bodyHeight, Color.BLACK, Color.GRAY);
 
+        int shoulderOffsetY = 10;
+        int armLength = 120;
+
+        Arm leftArm = new Arm(bodyPosX, bodyPosY + shoulderOffsetY, armLength, Direction.LEFT);
+        Arm rightArm = new Arm(bodyPosX + bodyTopWidth, bodyPosY + shoulderOffsetY, armLength, Direction.RIGHT);
+
+        parts.put("leftArm", leftArm);
+        parts.put("rightArm", rightArm);
         parts.put("body", body);
         parts.put("head", head);
     }

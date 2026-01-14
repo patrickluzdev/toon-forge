@@ -7,13 +7,12 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 public class Head extends CharacterPart {
-    private final int radius;
     private final int diameter;
 
-    public Head(int posX, int posY, int radius) {
-        super(posX, posY, Color.BLACK, Color.WHITE);
-        this.radius = Math.max(radius, 0);
-        this.diameter = this.radius * 2;
+    public Head(int x, int y, int radius) {
+        super(x, y, Color.BLACK, Color.WHITE);
+        int radius1 = Math.max(radius, 0);
+        this.diameter = radius1 * 2;
     }
 
     @Override
