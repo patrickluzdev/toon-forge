@@ -17,7 +17,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Renderer renderer = new Renderer(600, 400);
+        Renderer renderer = new Renderer(920, 920);
         WritableImage preview = SwingFXUtils.toFXImage(renderer.getFrame(), null);
         ImageView imageView = new ImageView(preview);
 

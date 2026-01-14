@@ -7,26 +7,22 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 public class Head extends CharacterPart {
+    private final int radius;
     private final int diameter;
 
     public Head(int posX, int posY, int radius) {
         super(posX, posY, Color.BLACK, Color.WHITE);
-        int radius1 = Math.max(radius, 0);
-        this.diameter = radius1 * 2;
+        this.radius = Math.max(radius, 0);
+        this.diameter = this.radius * 2;
     }
 
     @Override
     public void draw(Graphics2D g2d) {
-        if (getFillColor() != null) {
-            g2d.setColor(getFillColor());
-            g2d.fillRect(getPosX(), getPosY(), this.diameter, this.diameter);
-        }
+        g2d.setColor(getFillColor());
+        g2d.fillOval(getPosX(), getPosY(), diameter, diameter);
         g2d.setColor(getStrokeColor());
         g2d.setStroke(new BasicStroke(getStrokeWidth()));
-        g2d.drawOval(getPosX(), getPosY(), this.diameter, this.diameter);
-    }
+        g2d.drawOval(getPosX(), getPosY(), diameter, diameter);
 
-    public int getDiameter() {
-        return diameter;
     }
 }

@@ -10,24 +10,27 @@ import java.util.Map;
 
 public class Character {
     private final int posX, posY;
-    private final int bodyHeight = 60, headRadius = 20;
     private final Map<String, CharacterPart> parts = new LinkedHashMap<>();
 
     public Character(int posX, int posY) {
         this.posX = posX;
         this.posY = posY;
 
-
+        int headRadius = 80;
         Head head = new Head(this.posX, this.posY, headRadius);
 
-        int bodyWidth = 20;
-        int bodyPosY = this.posY + head.getDiameter() - 5;
-        int bodyPosX = this.posX + (head.getDiameter() - bodyWidth) / 2;
-        Body body = new Body(bodyPosX, bodyPosY, bodyWidth, this.bodyHeight, Color.BLACK, null);
+        int bodyTopWidth = 110;
+        int bodyBottomWidth = 150;
+        int bodyHeight = 210;
+
+        int centerX = this.posX + headRadius;
+        int bodyPosX = centerX - bodyTopWidth / 2;
+        int bodyPosY = this.posY + headRadius + headRadius / 2;
+
+        Body body = new Body(bodyPosX, bodyPosY, bodyTopWidth, bodyBottomWidth, bodyHeight, Color.BLACK, Color.GRAY);
 
         parts.put("body", body);
         parts.put("head", head);
-
     }
 
     public void draw(Graphics2D g2d) {
